@@ -67,6 +67,9 @@
 % gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dEmbedAllFonts=true -sOutputFile=DN2018-lopatka-portable.pdf -f DN2018-Lopatka.pdf
 % This will also compress the final output size 
 
+\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=right}
+
 \begin{document}
 
 \begin{frame}
@@ -74,6 +77,10 @@
 \begin{overpic}[width=0.7\textwidth]{taar.png}
 \end{overpic}
 %
+\note{ \item{Personalised web browsing experience is hard}
+\item{Especially with a rigorous and respectful privacy policy}
+\item{Ultimately, many of the approaches in UMAP strive to find innovative ways to extract a meaningful signal from very noisy data.}
+}
 \end{frame}
 
 {
@@ -85,6 +92,15 @@
 \put(57.25, -5){\small{Data Scientist/Applied Statistician}}
 \end{overpic}
 %
+\note{
+\item{My name is Martin Lopatka}
+\item{I'd like to use the time we have today to go through an approach we use at Mozilla to recommend browser extensions}
+\item{ give the time, I want to focus on a very brief overview, and two design choices in particular}
+\item{ differential privacy for frequency based recommendations}
+\item{cllr. as a way top get more utility out of general linear stacked ensembles of a particular type}
+\item{While imposing some privacy guarantees at the architectural level of TAAR's implementation}
+}
+%
 \end{frame}
 }
 
@@ -93,6 +109,24 @@
 \begin{frame}
 \frametitle{signal and the noise}
 extract a meaningful signal from a quantity of collected data that will be both useful and generalizable
+%
+\note{
+speaker note
+}
+%
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\begin{frame}
+\frametitle{title}
+content
+%
+\note{
+speaker note
+}
+%
 \end{frame}
 }
 
