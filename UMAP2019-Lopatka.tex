@@ -1,0 +1,100 @@
+% Set options for wide aspect ratio and beamer document class
+\documentclass[aspectratio=169]{beamer}
+
+% Package imports
+\usepackage{fontspec}
+\usepackage{epigraph}
+\usepackage{xcolor}
+\usepackage[percent]{overpic}
+
+% custom options to make epigraph look good on a beamer slide
+\renewcommand{\epigraphrule}{0pt}
+\setlength{\epigraphwidth}{.9\textwidth}
+\renewcommand{\textflush}{flushepinormal}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+% default document font specifications
+\setmainfont{FiraSans-Book}
+\setsansfont{FiraSans-Book}
+\definecolor{textcolour}{rgb}{255,255,255}
+
+% Definign the Mozilla colour palette for presentations 
+\definecolor{moz_dark_green}{RGB}{77,78,83}
+\definecolor{moz_light_green}{RGB}{208,211,212}
+\definecolor{moz_light_blue}{RGB}{0,150,221}
+\definecolor{moz_dark_blue}{RGB}{0,33,71}
+\definecolor{moz_accent_green}{RGB}{111,190,74}
+\definecolor{moz_accent_yellow}{RGB}{255,203,0}
+\definecolor{moz_accent_orange}{RGB}{255,149,0}
+\definecolor{moz_accent_orange2}{RGB}{230,96,0}
+\definecolor{moz_accent_red}{RGB}{193,56,50}
+
+% new counter for column enumerates
+\newcounter{savedenum}
+\newcommand*{\saveenum}{\setcounter{savedenum}{\theenumi}}
+\newcommand*{\resume}{\setcounter{enumi}{\thesavedenum}}
+
+% Background for all slides set here
+\setbeamertemplate{background canvas}{\includegraphics [width=\paperwidth]{bg_black.png}}
+
+\setbeamercolor{structure}{fg=textcolour}
+
+\setbeamerfont{title}{size = \Huge}
+\setbeamercolor{normal text}{fg=textcolour}
+
+%define specific fint size interpretations for the beamer presentation mode.
+\renewcommand{\tiny}{\fontsize{7pt}{8pt}\selectfont}
+\renewcommand{\scriptsize}{\fontsize{9pt}{12pt}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}
+\renewcommand{\small}{\fontsize{12pt}{18pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{14pt}{18pt}\selectfont}
+\renewcommand{\large}{\fontsize{16pt}{24pt}\selectfont}
+\renewcommand{\Large}{\fontsize{24pt}{37pt}\selectfont}
+\renewcommand{\LARGE}{\fontsize{31pt}{42pt}\selectfont}
+\renewcommand{\huge}{\fontsize{48pt}{54pt}\selectfont}
+\renewcommand{\Huge}{\fontsize{80pt}{96pt}\selectfont}
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+ 
+% After building the PDF you may ensure that local system fonts are embedded in the final PDF using:
+% gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dEmbedAllFonts=true -sOutputFile=DN2018-lopatka-portable.pdf -f DN2018-Lopatka.pdf
+% This will also compress the final output size 
+
+\begin{document}
+
+\begin{frame}
+%
+\begin{overpic}[width=0.7\textwidth]{taar.png}
+\end{overpic}
+%
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\begin{frame}
+\begin{overpic}[width=0.7\textwidth]{TAAR.png}
+\put(85, 7){\large{Martin Lopatka}}
+\put(78, 1){\small{mlopatka@mozilla.com}}
+\put(57.25, -5){\small{Data Scientist/Applied Statistician}}
+\end{overpic}
+%
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\begin{frame}
+\frametitle{signal and the noise}
+extract a meaningful signal from a quantity of collected data that will be both useful and generalizable
+\end{frame}
+}
+
+
+\end{document}
