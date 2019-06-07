@@ -192,3 +192,13 @@
 
 %% end of presentation
 \end{document}
+
+
+% notes from reviewers:
+
+%First, I miss an analysis of other, from my point of view even more interesting, aspects. For instance, which kinds of add-ons were installed more frequently? Are there correlations to locales? I suspect that eg translation add-ons were much more frequently installed from German than from US users, which could be one reason there was a higher increase for these users. Also, the authors state that the results were better "even in cases where clients have opted to limit the information they choose to share". Why was this aspect not further investigated? How did different settings impact the recommendation quality/installation rate?
+
+
+%tuning, I do not really see the novelty in their approach: As far as I understood, they perform a rather standard splitting in training and test data and measure the average precision, ie whether recommended items actually appear in the top-n results. The same applies for Sec 2.4 where they propose a metric which at first sight seems very much related to metrics like NDCG. If there actually is a benefit of using this method, the authors should in more detail explain why they use this method. Otherwise, choosing this metric seems rather arbitrary, especially without providing comparisons against configurations with parameters optimized according to other metrics (in particular given that the authors propose this method as one of the paper's main contributions).
+
+% why use the Pi^hat-c metric:  because it reflects the actual thing we are 	 to affect directly. 
