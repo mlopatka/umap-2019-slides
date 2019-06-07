@@ -74,7 +74,7 @@
 
 %% slide 1
 \begin{frame}
-\begin{overpic}[width=0.7\textwidth]{taar2.png}
+\begin{overpic}[width=0.7\textwidth]{taar2_compressed.png}
 \end{overpic}
 %% Speaker notes:
 \note{
@@ -91,7 +91,7 @@
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
-\begin{overpic}[width=0.7\textwidth]{TAAR.png}
+\begin{overpic}[width=0.7\textwidth]{taar1_compressed.png}
 \put(85, 7){\large{Martin Lopatka}}
 \put(78, 1){\small{mlopatka@mozilla.com}}
 \put(57.25, -5){\small{Data Scientist/Applied Statistician}}
@@ -101,8 +101,9 @@
     \begin{itemize}
         \item{Martin Lopatka}
         \item{Time we have through... Mozilla's approach to recommending browser extensions}
-        \item{Curiosity vs. builders \textbf{spatial anchor}}
-        \item{give the time, focus on a very brief overview, and two specific design choices}
+        \item{T.A.A.R.}
+        \item{Curiosity vs. builders -> move \textbf{spatial anchor}}
+        \item{given the time, focus on a very brief overview, and two specific design choices}
         \item{Privacy by design and CLLR}
 \end{itemize}
 }
@@ -113,12 +114,13 @@
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
-\frametitle{signal and the noise}
-extract a meaningful signal from a quantity of collected data that will be both useful and generalizable
-%
-\note{
-speaker note
-}
+\frametitle{Telemetry-Aware Add-on Recommender}
+%% Speaker notes:
+    \note{
+        \begin{itemize}
+        \item{Full system Spec}       
+        \end{itemize}
+    }
 %
 \end{frame}
 }
@@ -126,15 +128,67 @@ speaker note
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
-\frametitle{title}
-content
-%
-\note{
-speaker note
-}
+\frametitle{Differential Privacy}
+%% Speaker notes:
+    \note{
+        \begin{itemize}
+        \item{Due diligence}
+        \item{Guards against Overfitting}        
+        \end{itemize}
+    }
 %
 \end{frame}
 }
 
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\begin{frame}
+\frametitle{Log Likelihood Ratio Cost (cLLR)}
+%% Speaker notes:
+    \note{
+        \begin{itemize}
+        \item{better usage of full signal if component modules a probabilistic (flavoured)}
+        \item{better ensembles}        
+        \item{generalizable}
+        \end{itemize}
+    }
+%
+\end{frame}
+}
 
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\begin{frame}
+\frametitle{User Choice and Performance}
+%% Speaker notes:
+    \note{
+        \begin{itemize}
+        \item{variable availability of our data, not only in terms of quantity but in terms of fields}
+        \item{offer users granular choice in Telemetry}
+        \item{Performs well and scales with data availability}
+        \item{And 100\% open source} 
+        \item{so if you are just curious or building something -> step back \textbf{spatial anchor}}
+        \end{itemize}
+    }
+%
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\begin{frame}
+\frametitle{Acknowledgements}
+%% Speaker notes:
+    \note{
+        \begin{itemize}
+        \item{Thank you all for choosing to come engage with me here}
+        \item{I'll be happy... questions}        
+        \item{but first... acknowledgements}        
+        \end{itemize}
+    }
+%
+\end{frame}
+}
+
+%% end of presentation
 \end{document}
