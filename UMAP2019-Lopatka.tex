@@ -72,17 +72,22 @@
 
 \begin{document}
 
+%% slide 1
 \begin{frame}
-%
-\begin{overpic}[width=0.7\textwidth]{taar.png}
+\begin{overpic}[width=0.7\textwidth]{taar2.png}
 \end{overpic}
-%
-\note{ \item{Personalised web browsing experience is hard}
-\item{Especially with a rigorous and respectful privacy policy}
-\item{Ultimately, many of the approaches in UMAP strive to find innovative ways to extract a meaningful signal from very noisy data.}
+%% Speaker notes:
+\note{
+	\begin{itemize} 
+		\item{Personalised web browsing experience is hard}
+		\item{Especially with a rigorous and respectful privacy policy}
+		\item{Ultimately, many of the approaches in UMAP strive to find innovative ways to extract a meaningful signal from very noisy data.}
+	\end{itemize}
 }
+%%
 \end{frame}
 
+%% slide 2
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
@@ -91,14 +96,15 @@
 \put(78, 1){\small{mlopatka@mozilla.com}}
 \put(57.25, -5){\small{Data Scientist/Applied Statistician}}
 \end{overpic}
-%
+%% Speaker notes:
 \note{
-\item{My name is Martin Lopatka}
-\item{I'd like to use the time we have today to go through an approach we use at Mozilla to recommend browser extensions}
-\item{ give the time, I want to focus on a very brief overview, and two design choices in particular}
-\item{ differential privacy for frequency based recommendations}
-\item{cllr. as a way top get more utility out of general linear stacked ensembles of a particular type}
-\item{While imposing some privacy guarantees at the architectural level of TAAR's implementation}
+    \begin{itemize}
+        \item{Martin Lopatka}
+        \item{Time we have through... Mozilla's approach to recommending browser extensions}
+        \item{Curiosity vs. builders \textbf{spatial anchor}}
+        \item{give the time, focus on a very brief overview, and two specific design choices}
+        \item{Privacy by design and CLLR}
+\end{itemize}
 }
 %
 \end{frame}
