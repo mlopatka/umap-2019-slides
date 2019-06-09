@@ -114,11 +114,37 @@
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
-\frametitle{Telemetry-Aware Add-on Recommender}
+\frametitle{Telemetry}
+\begin{center}\large{Firefox Telemetry (optionally) measures and collects non-personal, performance and usage information.}\footnote{https://wiki.mozilla.org/Telemetry}\end{center}
 %% Speaker notes:
     \note{
         \begin{itemize}
-        \item{Full system Spec}       
+\item{application localization identifier: (ch-de, br-pt)}
+\item{operating system}
+\item{subsession length}
+\item{bookmark count}
+\item{open tab count}
+\item{unique TLDs}
+\item{add-ons installed}
+        \end{itemize}
+    }
+%
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\begin{frame}
+\frametitle{\textbf{T}elemetry-\textbf{A}ware \textbf{A}dd-on \textbf{R}ecommender}
+\begin{center}\includegraphics[width=0.8\textwidth]{taar-flow.png}\end{center}
+%% Speaker notes:
+    \note{
+        \begin{itemize}
+        \item{Full system Spec} 
+        \item{Three modules each leveraging different subsets of client information based on availability.} 
+        \item{Individual recommendations combined via linear stacked ensemble}
+        \item{These are domain specific and specific to our telemetry infra, so lets treat them like black boxes}
+        \item{more interesting is the comparison of functions for determining individual weighting of the recommendations.}     
         \end{itemize}
     }
 %
@@ -133,6 +159,8 @@
     \note{
         \begin{itemize}
         \item{Due diligence}
+        \item{method for releasing a table of frequency counts while preserving a differential privacy guarentee. }
+        \item{We adapt this technique to generate add-on installation frequency tables for each locale according to the following procedure}
         \item{Guards against Overfitting}        
         \end{itemize}
     }
@@ -141,15 +169,23 @@
 }
 
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{LR-bg.jpg}}
 \begin{frame}
 \frametitle{Log Likelihood Ratio Cost (cLLR)}
+\texttt{\noindent'zh-CN': [('guid\_01', 0.75),...,('guid\_02', 0.05)],\\
+\noindent'fr-FR': [('guid\_03', 0.24),...,('guid\_04', 0.01)],\\
+\noindent...,\\
+\noindent'en-US': [('guid\_04', 0.18),...,(guid\_05', 0.02)]
+}
+
+include boxplots vs other metrics.
 %% Speaker notes:
-    \note{
+\note{
         \begin{itemize}
         \item{better usage of full signal if component modules a probabilistic (flavoured)}
         \item{better ensembles}        
         \item{generalizable}
+        \item{Versus Discounted Cumulative Gain (DCG), and versus Mean Average Precision (MAP) for including in the recommendation list at all}
         \end{itemize}
     }
 %
@@ -193,6 +229,10 @@
 %% end of presentation
 \end{document}
 
+%TODO: Todo: 
+%0 - install Inkscape
+%1- email VNG about general. Usage statistics for tear now.
+%2- simulate perf curves with other functions than CLLR
 
 % notes from reviewers:
 
