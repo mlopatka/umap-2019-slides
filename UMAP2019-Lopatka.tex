@@ -6,6 +6,7 @@
 \usepackage{epigraph}
 \usepackage{xcolor}
 \usepackage[percent]{overpic}
+\usepackage{pgfpages}
 
 % custom options to make epigraph look good on a beamer slide
 \renewcommand{\epigraphrule}{0pt}
@@ -67,8 +68,8 @@
 % gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dEmbedAllFonts=true -sOutputFile=DN2018-lopatka-portable.pdf -f DN2018-Lopatka.pdf
 % This will also compress the final output size 
 
-\setbeameroption{show notes}
-%\setbeameroption{show notes on second screen=right}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen}
 
 \begin{document}
 
@@ -155,11 +156,16 @@
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{LR-bg.jpg}}
 \begin{frame}
 \frametitle{Differential Privacy}
+\begin{itemize}
+\item{Differentially private release mechanism for frequencies reports an approximate answer to an \textbf{\textit{item:count}} distribution.}
+\item{Noise must be chosen to preserve the usefulness of the provided answer while protecting the privacy of the more rare counts}
+\end{itemize}
+\tiny{Introduction to DP: https://robertovitillo.com/2016/07/29/differential-privacy-for-dummies/}
 %% Speaker notes:
     \note{
         \begin{itemize}
-        \item{Due diligence}
-        \item{method for releasing a table of frequency counts while preserving a differential privacy guarentee. }
+        \item{Formalizes the idea that released data set can not be used to infer whether any one person is present}
+        \item{Typically generated on the basis of a known distribution and some known noise distribution.} 
         \item{We adapt this technique to generate add-on installation frequency tables for each locale according to the following procedure}
         \item{Guards against Overfitting}        
         \end{itemize}
@@ -183,8 +189,7 @@ include boxplots vs other metrics.
 \note{
         \begin{itemize}
         \item{better usage of full signal if component modules a probabilistic (flavoured)}
-        \item{better ensembles}        
-        \item{generalizable}
+        \item{Symmetry also accounts for incorrect recommendations (instead of just relative rank fo correct recommendations and the relevance score)}        
         \item{Versus Discounted Cumulative Gain (DCG), and versus Mean Average Precision (MAP) for including in the recommendation list at all}
         \end{itemize}
     }
@@ -196,7 +201,8 @@ include boxplots vs other metrics.
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
 \frametitle{Performance}
-\begin{center}\includegraphics[width=0.8\textwidth]{taar-all-performance.png}\end{center}
+\vspace{-1.5cm}
+\begin{center}\includegraphics[width=1.05\textwidth]{taar-all-performance.png}\end{center}
 %% Speaker notes:
     \note{
         \begin{itemize}
@@ -204,7 +210,7 @@ include boxplots vs other metrics.
         \item{offer users granular choice in Telemetry}
         \item{Performs well and scales with data availability}
         \item{And 100\% open source} 
-        \item{so if you are just curious or building something -> step back \textbf{spatial anchor}}
+        \item{TAAR Served over 450K recommendations to 348 900 unique clients}
         \end{itemize}
     }
 %
@@ -215,6 +221,31 @@ include boxplots vs other metrics.
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
 \frametitle{Acknowledgements}
+   \begin{columns}
+     \begin{column}{.33\linewidth}
+Victor Ng\\
+Ben Miroglio\\
+David Zeber\\
+Alessio Placitelli\\
+Laura Thomson
+     \end{column}
+     \begin{column}{.33\linewidth}
+Fredrik Wollsén\\
+Jason Thomas\\
+Stuart Colville\\
+Shell Escalante\\
+Scott Devaney\\
+     \end{column}
+     \begin{column}{.33\linewidth}
+AMO team\\
+InfoSec\\
+QA team\\
+Florian Hartmann\\
+Roberto Vitillo
+     \end{column}
+     
+   \end{columns}
+
 %% Speaker notes:
     \note{
         \begin{itemize}
@@ -241,5 +272,3 @@ include boxplots vs other metrics.
 
 
 %tuning, I do not really see the novelty in their approach: As far as I understood, they perform a rather standard splitting in training and test data and measure the average precision, ie whether recommended items actually appear in the top-n results. The same applies for Sec 2.4 where they propose a metric which at first sight seems very much related to metrics like NDCG. If there actually is a benefit of using this method, the authors should in more detail explain why they use this method. Otherwise, choosing this metric seems rather arbitrary, especially without providing comparisons against configurations with parameters optimized according to other metrics (in particular given that the authors propose this method as one of the paper's main contributions).
-
-% why use the Pi^hat-c metric:  because it reflects the actual thing we are 	 to affect directly. 
