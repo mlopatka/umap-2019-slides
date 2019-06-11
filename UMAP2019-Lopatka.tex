@@ -103,7 +103,7 @@
         \item{Martin Lopatka}
         \item{Time we have through... Mozilla's approach to recommending browser extensions}
         \item{T.A.A.R.}
-        \item{Curiosity vs. builders -> move \textbf{spatial anchor}}
+        \item{Curiosity vs. builders }
         \item{given the time, focus on a very brief overview, and two specific design choices}
         \item{Privacy by design and CLLR}
 \end{itemize}
@@ -136,7 +136,7 @@
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{bg_alt_small-rlogo.png}}
 \begin{frame}
-\frametitle{\textbf{T}elemetry-\textbf{A}ware \textbf{A}dd-on \textbf{R}ecommender}
+\frametitle{Telemetry-Aware Add-on Recommender}
 \begin{center}\includegraphics[width=0.8\textwidth]{taar-flow.png}\end{center}
 %% Speaker notes:
     \note{
@@ -160,6 +160,7 @@
 \item{Differentially private release mechanism for frequencies reports an approximate answer to an \textbf{\textit{item:count}} distribution.}
 \item{Noise must be chosen to preserve the usefulness of the provided answer while protecting the privacy of the more rare counts}
 \end{itemize}
+\vspace{0.5cm}
 \tiny{Introduction to DP: https://robertovitillo.com/2016/07/29/differential-privacy-for-dummies/}
 %% Speaker notes:
     \note{
@@ -178,13 +179,38 @@
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{LR-bg.jpg}}
 \begin{frame}
 \frametitle{Log Likelihood Ratio Cost (cLLR)}
-\texttt{\noindent'zh-CN': [('guid\_01', 0.75),...,('guid\_02', 0.05)],\\
+\footnotesize{\texttt{\noindent'zh-CN': [('guid\_01', 0.75),...,('guid\_02', 0.05)],\\
 \noindent'fr-FR': [('guid\_03', 0.24),...,('guid\_04', 0.01)],\\
 \noindent...,\\
 \noindent'en-US': [('guid\_04', 0.18),...,(guid\_05', 0.02)]
+}}
+\begin{center}\includegraphics[width=0.6\textwidth]{vio-plots-optimize.png}\end{center}
+
+%% Speaker notes:
+\note{
+        \begin{itemize}
+        \item{better usage of full signal if component modules a probabilistic (flavoured) ignores rank!}
+        \item{reference keynote, choosing the *correct* metric}
+        \item{Symmetry accounts for incorrect recommendations (instead of just relative rank fo correct recommendations and the relevance score)}        
+        \item{Versus Discounted Cumulative Gain (DCG), and versus Mean Average Precision (MAP) for including in the recommendation list at all}
+        \end{itemize}
+    }
+%
+\end{frame}
 }
 
-include boxplots vs other metrics.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{LR-bg.jpg}}
+\begin{frame}
+\frametitle{Experimental design}
+Experiment ran: 27-Aug-2018 to 29-Oct-2018\\
+Served recommendations to 348 900 unique clients\\
+
+\begin{itemize}
+\item{\textbf{control} — Manually curated list of add-ons based on a user’s locale}
+\item{\textbf{ensemble} — Weighted combination of all eligible models from the TAAR service}
+\item{\textbf{hybrid} — Identical to the ensemble with some curated add-ons interleaved}
+\end{itemize}
 %% Speaker notes:
 \note{
         \begin{itemize}
@@ -207,10 +233,10 @@ include boxplots vs other metrics.
     \note{
         \begin{itemize}
         \item{variable availability of our data, not only in terms of quantity but in terms of fields}
-        \item{offer users granular choice in Telemetry}
+        \item{handles peculiar data sparsity problems well}
         \item{Performs well and scales with data availability}
         \item{And 100\% open source} 
-        \item{TAAR Served over 450K recommendations to 348 900 unique clients}
+        \item{TAAR Serves about 240K recommendations per day in under 100ms}
         \end{itemize}
     }
 %
@@ -234,10 +260,12 @@ Fredrik Wollsén\\
 Jason Thomas\\
 Stuart Colville\\
 Shell Escalante\\
-Scott Devaney\\
+Scott DeVaney\\
+Kev Needham
      \end{column}
      \begin{column}{.33\linewidth}
 AMO team\\
+Localisation team\\
 InfoSec\\
 QA team\\
 Florian Hartmann\\
@@ -257,18 +285,5 @@ Roberto Vitillo
 %
 \end{frame}
 }
-
 %% end of presentation
 \end{document}
-
-%TODO: Todo: 
-%0 - install Inkscape
-%1- email VNG about general. Usage statistics for tear now.
-%2- simulate perf curves with other functions than CLLR
-
-% notes from reviewers:
-
-%First, I miss an analysis of other, from my point of view even more interesting, aspects. For instance, which kinds of add-ons were installed more frequently? Are there correlations to locales? I suspect that eg translation add-ons were much more frequently installed from German than from US users, which could be one reason there was a higher increase for these users. Also, the authors state that the results were better "even in cases where clients have opted to limit the information they choose to share". Why was this aspect not further investigated? How did different settings impact the recommendation quality/installation rate?
-
-
-%tuning, I do not really see the novelty in their approach: As far as I understood, they perform a rather standard splitting in training and test data and measure the average precision, ie whether recommended items actually appear in the top-n results. The same applies for Sec 2.4 where they propose a metric which at first sight seems very much related to metrics like NDCG. If there actually is a benefit of using this method, the authors should in more detail explain why they use this method. Otherwise, choosing this metric seems rather arbitrary, especially without providing comparisons against configurations with parameters optimized according to other metrics (in particular given that the authors propose this method as one of the paper's main contributions).
